@@ -5,8 +5,6 @@ This is a JavaScript solution to the Word Scramble Score coding challenge sent b
 
 GitHub: https://github.com/WilliamHartman/Word-Scramble-Score
 Replit: https://repl.it/@hartman/Word-Scramble-Score
-
-Given more time there are a few ways I can make this more efficient. Mostly by reducing the number of loops that need to be run. I would also add in more fail-safes and error checking for bad input.
 *********************/
 
 const comboArr = ['AI', 'AY', 'EA', 'EE', 'EO', 'IO', 'OA', 'OO', 'OY', 'YA', 'YO', 'YU', 'BL', 'BR', 'CH', 'CK', 'CL', 'CR', 'DR', 'FL', 'FR', 'GH', 'GL', 'GR', 'KL', 'KR', 'KW', 'PF', 'PL', 'PR', 'SC', 'SCH', 'SCR', 'SHR', 'SK', 'SL', 'SM', 'SN', 'SP', 'SQ', 'ST', 'SW', 'TH', 'THR', 'TR', 'TW', 'WH', 'WR'];
@@ -127,9 +125,6 @@ function solve(inputArr){
       resultArr.push(`Input #${i+1} is not 2 words.`);
     }
 
-    // *** Add error check to make sure both words have the same letters. Split both words into arrays of letters, splice letter out of each if a match is found. No letters left (.length of both = 0) in each is the same word
-
-
     //Adds to results array based on what it passes
     if(splitArr[0] === splitArr[1]){
       resultArr.push(`${splitArr[0]} is not a scramble of ${splitArr[1]}`)
@@ -147,8 +142,7 @@ function solve(inputArr){
 }
 
 solve(['MAPS SPAM', 'RIONY IRONY', 'ONYRI IRONY', 'IRONY IRONY', 'INOYR IRONY', 'IOYRN IRONY']);
-solve(['SIMULATOR SIMULATOR', 'SMULATOIR SIMULATOR', 'ROMULATSI SIMULATOR', 'ROMULATIS SIMULATOR', 'SMULATORI SIMULATOR', 'ROTASUMIL SIMULATOR'])
-
+solve(['SIMULATOR SIMULATOR', 'SMULATOIR SIMULATOR', 'ROMULATSI SIMULATOR', 'ROMULATIS SIMULATOR', 'SMULATORI SIMULATOR', 'ROTASUMIL SIMULATOR', 'ROTASURRR SIMULATOR'])
 
 
 /********************
