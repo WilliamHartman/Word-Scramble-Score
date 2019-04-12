@@ -1,10 +1,10 @@
-/*
+/*********************
 William Hartman
 
 This is a JavaScript solution to the Word Scramble Score coding challenge sent by Likewise
 
 Given more time there are a few ways I can make this more efficient. Mostly by reducing the number of loops that need to be run. I would also add in more fail-safes and error checking for bad input.
-*/
+*********************/
 
 const comboArr = ['AI', 'AY', 'EA', 'EE', 'EO', 'IO', 'OA', 'OO', 'OY', 'YA', 'YO', 'YU', 'BL', 'BR', 'CH', 'CK', 'CL', 'CR', 'DR', 'FL', 'FR', 'GH', 'GL', 'GR', 'KL', 'KR', 'KW', 'PF', 'PL', 'PR', 'SC', 'SCH', 'SCR', 'SHR', 'SK', 'SL', 'SM', 'SN', 'SP', 'SQ', 'ST', 'SW', 'TH', 'THR', 'TR', 'TW', 'WH', 'WR'];
 
@@ -72,7 +72,6 @@ function looksReal(scrambledWord){
   return true;
 }
 
-
 //Returns true if the consonents and vowels switch every other letter.  
 function checkEveryOther(str, threeLetter){
   //If there is two in a row sends the parameters into checkComboArr to see if they are in the comboArr provided. If different returns true
@@ -82,7 +81,6 @@ function checkEveryOther(str, threeLetter){
     return true;
   }
 }
-
 
 //Returns true if input string is in the comboArr
 function checkComboArr(str, threeLetter){
@@ -104,7 +102,11 @@ function checkComboArr(str, threeLetter){
 
 
 
-//Main function
+/********************
+* 
+*   Main function
+*
+********************/
 function solve(inputArr){
   //Convert input array to upper case
   inputArr = inputArr.map(x => x.toUpperCase())
@@ -143,3 +145,45 @@ function solve(inputArr){
 
 solve(['MAPS SPAM', 'RIONY IRONY', 'ONYRI IRONY', 'IRONY IRONY', 'INOYR IRONY', 'IOYRN IRONY']);
 solve(['SIMULATOR SIMULATOR', 'SMULATOIR SIMULATOR', 'ROMULATSI SIMULATOR', 'ROMULATIS SIMULATOR', 'SMULATORI SIMULATOR', 'ROTASUMIL SIMULATOR'])
+
+
+/********************
+ *  Auto Scrambler
+ *********************/
+//Random number generater from 0 to parameter 
+function getRandomNumber(max){
+  return Math.floor(Math.random()*(max + 1))
+}
+
+//Scrambles a word using a RNG
+function scrambler(word){
+  //Split word into array of letters
+  let wordArr = word.split('');
+  let scrambledWordArr = [];
+  
+  //Loop through array while it isn't empty
+  while(wordArr.length > 0){
+    //Get a random number from 0-length
+    let randNum = getRandomNumber(wordArr.length-1);
+    //Remove letter from word array, push onto the end of scrambled word array
+    scrambledWordArr.push(wordArr.splice(randNum, 1));
+  }
+  return scrambledWordArr.join('');
+}
+
+//Returns an array of scrambled words to use on the main Score function
+function multiScramble(word, num){
+  let returnArr = [];
+
+  //Loops for as many times as user entered
+  for(let i=0; i<num; i++){
+    //Pushes scrambled word and seed word into array
+    returnArr.push(`${scrambler(word)} word`)
+  }
+  return returnArr;  
+}
+
+let irony = multiScramble('IRONY', 10);
+solve(irony)
+
+solve(multiScramble('SIMULATOR', 10))
