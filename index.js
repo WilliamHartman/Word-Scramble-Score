@@ -3,6 +3,9 @@ William Hartman
 
 This is a JavaScript solution to the Word Scramble Score coding challenge sent by Likewise
 
+GitHub: https://github.com/WilliamHartman/Word-Scramble-Score
+Replit: https://repl.it/@hartman/Word-Scramble-Score
+
 Given more time there are a few ways I can make this more efficient. Mostly by reducing the number of loops that need to be run. I would also add in more fail-safes and error checking for bad input.
 *********************/
 
@@ -145,6 +148,7 @@ function solve(inputArr){
 
 solve(['MAPS SPAM', 'RIONY IRONY', 'ONYRI IRONY', 'IRONY IRONY', 'INOYR IRONY', 'IOYRN IRONY']);
 solve(['SIMULATOR SIMULATOR', 'SMULATOIR SIMULATOR', 'ROMULATSI SIMULATOR', 'ROMULATIS SIMULATOR', 'SMULATORI SIMULATOR', 'ROTASUMIL SIMULATOR'])
+
 
 
 /********************
