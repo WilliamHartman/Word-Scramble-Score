@@ -1,6 +1,8 @@
 # Word-Scramble-Score
 Coding Challenge for Likewise
 
+Solution on replit: https://repl.it/@hartman/Word-Scramble-Score
+
 Word Scramble Score
 A popular item in the local paper is the word scramble. In this puzzle, a reader is presented with a series
 of letters that are for a scrambled word, e.g. “rwod” can be unscrambled to “word”. Your job is to write
